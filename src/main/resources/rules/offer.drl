@@ -1,0 +1,22 @@
+import org.monu.droolsmwg.domain.Order;
+
+rule "HDFC"
+when
+    order : Order(cardType == "HDFC" && price > 10000);
+then
+    order.setDiscount(10);
+end;
+
+rule "ICICI"
+when
+    order : Order(cardType == "ICICI" && price > 15000);
+then
+    order.setDiscount(8);
+end;
+
+rule "AnyBank"
+when
+    order : Order(cardType == "AnyBank" && price > 8000);
+then
+    order.setDiscount(13);
+end;
